@@ -1,0 +1,10 @@
+[
+	{
+	"username": "luke.skywalker@resistence.com",
+	"password": "password123"
+	},
+	{
+		"username": "darth.vadar@empire.com",
+		"password": "iamyourfather"
+	}
+]
