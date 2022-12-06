@@ -2,8 +2,11 @@
 
 Welcome candidate to Agridence React frontend challenge! The goal of this assignment is to test your knowledge and practices that you have on a day-to-day basis.
 
-## how to start
+## How to Start?
 Please fork the project and start the project using `npm start`
+
+### Note
+- You may choose to any component/UI libraries for the design as we are not looking at how good you are at designing the components :)
 
 ## Requirements
 - As a user, When I login with the correct credential, I should be able to access my personal notes.

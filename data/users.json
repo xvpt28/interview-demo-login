@@ -4,7 +4,11 @@
 	"password": "password123"
 	},
 	{
-		"username": "darth.vadar@empire.com",
+		"username": "darth.vader@empire.com",
 		"password": "iamyourfather"
+	},
+	{
+		"username": "yoda@jedicouncil.com",
+		"password": "challengeyoumusthmm?"
 	}
 ]
