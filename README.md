@@ -3,10 +3,19 @@
 Welcome candidate to Agridence React frontend challenge! The goal of this assignment is to test your knowledge and practices that you have on a day-to-day basis.
 
 ## How to Start?
-Please fork the project and start the project using `npm start`
+Import the project as a private repo https://github.com/new/import 
+
+![import-project](images/import-project.png)
+
+Clone your private repo into your folder
+![clone-local](images/clone-local.png)
+
+start the project using `npm start`
 
 ### Note
 - You may choose to any component/UI libraries for the design as we are not looking at how good you are at designing the components :)
+- You do not need to make a Backend API server for this challenge. Just use the user.json data.
+- You can store the information you need on redux or local storage.
 
 ## Requirements
 - As a user, When I login with the correct credential, I should be able to access my personal notes.
@@ -19,7 +28,15 @@ Please fork the project and start the project using `npm start`
 - As a note, I should have a description that is shown in the detail view.
 
 ## Submission
-Please create a pull request to https://github.com/HeveaConnect/react-assignment on the branch submission/your-name (e.g. submission/wei-kiat)
+go to your private repo settings and add the reviewers as the collaborators
+![add-collaborators](images/add-collaborators.png)
+
+
+## React assignment reviewers
+- [weikiat87](https://github.com/weikiat87)
+- [sruthiganesh-HC](https://github.com/sruthiganesh-HC)
+- [ShankarRM](https://github.com/ShankarRM)
+- [abhi-agridence](https://github.com/abhi-agridence)
 
 
 # Getting Started with Create React App
