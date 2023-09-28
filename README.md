@@ -33,8 +33,8 @@ go to your private repo settings and add the reviewers as the collaborators
 
 
 ## React assignment reviewers
-- [weikiat](https://github.com/weikiat87)
-- [Bobbie](https://github.com/bebarle)
+- [weikiat87](https://github.com/weikiat87)
+- [bebarle](https://github.com/bebarle)
 - [abhi-agridence](https://github.com/abhi-agridence)
 
 
