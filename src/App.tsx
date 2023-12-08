@@ -1,12 +1,13 @@
-import LoginView from "./pages/login-view";
-import Login from "./pages/login";
+import { SnackbarProvider } from "notistack";
+import RouterConfig from "./routes/RouterConfig";
 
 function App() {
   return (
-    <>
-      <Login />
-      <LoginView />
-    </>
+    <SnackbarProvider maxSnack={1}>
+      <div className="min-h-screen">
+        <RouterConfig />
+      </div>
+    </SnackbarProvider>
   );
 }
 
