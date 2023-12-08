@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Icon } from "@iconify/react";
 import { addNotes, deleteNotes, updateNotes } from "../api/notes";
 import { showMessage } from "../utils/tools";
+import { on } from "events";
 
 interface IProps {
   title: string;
@@ -24,38 +25,6 @@ const Notes = (props: IProps) => {
   const [isEditing, setIsEditing] = React.useState(createModel);
   const [formData, setFormData] = React.useState({ title, content, id });
 
-  const renderText = (
-    <>
-      <h2 className="card-title h-8">{title}</h2>
-      <p className="overflow-hidden whitespace-nowrap text-ellipsis h-8">
-        {content}
-      </p>
-    </>
-  );
-
-  const renderEdit = (
-    <form className="flex flex-col">
-      <input
-        onChange={(e) => {
-          setFormData((prev) => ({ ...prev, title: e.target.value }));
-        }}
-        value={formData.title}
-        type="text"
-        placeholder="Type title here"
-        className="input input-bordered  max-w-xs input-sm  mb-3"
-      />
-      <input
-        onChange={(e) =>
-          setFormData((prev) => ({ ...prev, content: e.target.value }))
-        }
-        value={formData.content}
-        type="text"
-        placeholder="Type description here"
-        className="input input-bordered w-full input-sm "
-      />
-    </form>
-  );
-
   const onSubmit = () => {
     setIsEditing(false);
     if (createModel) {
@@ -68,6 +37,49 @@ const Notes = (props: IProps) => {
     }
     triggerRefresh();
   };
+
+  const renderText = (
+    <div className="h-[80px]">
+      <h2 className="card-title h-8">{title}</h2>
+      <p className="overflow-hidden whitespace-nowrap text-ellipsis h-8">
+        {content}
+      </p>
+    </div>
+  );
+
+  const renderEdit = (
+    <form className="flex flex-col h-[80px]" onSubmit={onSubmit}>
+      <div className="flex mb-2">
+        <label className="label mr-2">
+          <span className="label-text">Title</span>
+        </label>
+        <input
+          onChange={(e) => {
+            setFormData((prev) => ({ ...prev, title: e.target.value }));
+          }}
+          value={formData.title}
+          type="text"
+          placeholder="Type title here"
+          className="input input-bordered  max-w-xs input-sm "
+        />
+      </div>
+
+      <div className="flex">
+        <label className="label mr-2">
+          <span className="label-text">Description</span>
+        </label>
+        <input
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, content: e.target.value }))
+          }
+          value={formData.content}
+          type="text"
+          placeholder="Type description here"
+          className="input input-bordered w-full input-sm "
+        />
+      </div>
+    </form>
+  );
 
   const onDelete = () => {
     if (createModel) {
@@ -95,7 +107,10 @@ const Notes = (props: IProps) => {
             )}
             {createModel || (
               <button
-                onClick={() => setIsEditing((prev) => !prev)}
+                onClick={() => {
+                  setIsEditing((prev) => !prev);
+                  setFormData({ title, content, id });
+                }}
                 className={`btn btn-square btn-outline btn-sm ${
                   isEditing && "btn-error"
                 }`}
