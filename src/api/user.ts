@@ -62,3 +62,13 @@ export async function auth() {
     };
   }
 }
+
+export function logout() {
+  localStorage.removeItem("token");
+  showMessage("success", "Logout successfully");
+  return {
+    code: 200,
+    message: "success",
+    data: null,
+  };
+}

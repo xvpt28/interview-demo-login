@@ -4,7 +4,7 @@ import { Suspense, lazy } from "react";
 const LoginPage = lazy(() => import("../pages/Login"));
 const NotesPage = lazy(() => import("../pages/NotesPage"));
 
-const Router = () => {
+const RouterConfig = () => {
   return (
     <Suspense
       fallback={
@@ -22,4 +22,4 @@ const Router = () => {
   );
 };
 
-export default Router;
+export default RouterConfig;

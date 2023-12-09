@@ -1,5 +1,7 @@
 import { SnackbarProvider } from "notistack";
 import RouterConfig from "./routes/RouterConfig";
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./routes/Auth";
 
 function App() {
   return (

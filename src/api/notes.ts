@@ -1,6 +1,8 @@
 import { Note } from "../types/user";
 
-export function getNotes() {
+// this data should be stored and fetch from server side
+
+export function getNotesApi() {
   const user = localStorage.getItem("token");
   if (!user) {
     return {
@@ -17,7 +19,7 @@ export function getNotes() {
   };
 }
 
-export function addNotes(note: Note) {
+export function addNotesApi(note: Note) {
   const user = localStorage.getItem("token");
   if (!user) {
     return {
@@ -36,7 +38,7 @@ export function addNotes(note: Note) {
   };
 }
 
-export function deleteNotes(id: string) {
+export function deleteNotesApi(id: string) {
   const user = localStorage.getItem("token");
   if (!user) {
     return {
@@ -56,7 +58,7 @@ export function deleteNotes(id: string) {
   };
 }
 
-export function updateNotes(note: Note, id: string) {
+export function updateNotesApi(note: Note, id: string) {
   const user = localStorage.getItem("token");
   if (!user) {
     return {
@@ -67,9 +69,7 @@ export function updateNotes(note: Note, id: string) {
   }
   const notes: Note[] = JSON.parse(localStorage.getItem(user) || "[]");
   const index = notes.findIndex((note) => note.id === id);
-  console.log(index);
   notes.splice(index, 1, note);
-  console.log(notes);
   localStorage.setItem(user, JSON.stringify(notes));
   return {
     code: 200,

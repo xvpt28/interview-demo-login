@@ -1,22 +1,29 @@
+// package imports
 import React from "react";
 import { createContext, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../api/user";
-import { showMessage } from "../utils/tools";
+import { useDispatch } from "react-redux";
 
-const AuthContext = createContext({});
+// modules imports
+import { authUserThunk } from "../redux/slices/userSlice";
+import { AppDispatch } from "../redux/store";
 
 interface IProps {
   children: React.ReactNode;
 }
 
+const AuthContext = createContext({});
+
 export const AuthProvider: React.FC<IProps> = ({ children }) => {
   const navigate = useNavigate();
 
+  const dispatch = useDispatch<AppDispatch>();
+
+  // auth guard & user state in redux
   const authUser = async () => {
-    const resp = await auth();
-    if (resp.data) {
-      return resp.data;
+    const resp = await dispatch(authUserThunk());
+    if ((resp.payload as any).data) {
+      return (resp.payload as any).data;
     } else {
       navigate("/login", {
         state: { message: "Login expired, please login again.", type: "error" },
